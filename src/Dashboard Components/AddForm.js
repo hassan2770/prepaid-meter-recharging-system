@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useDash } from '../contexts/Dashboardcontext'
-
+import {auth} from '../firebase'
 const AddForm = () => {
     const [text,setText]=useState('')
     const [day,setDay]=useState('')
     const [reminder,setReminder]=useState(false)
     const {Addtasks} = useDash()
+    const userId = auth.currentUser.uid;
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -13,7 +14,7 @@ const AddForm = () => {
             alert('Please Add a task')
             return
         }
-        Addtasks({text,day,reminder})
+        Addtasks({text,day,reminder,userId})
         setText('')
         setDay('')
         setReminder(false)
