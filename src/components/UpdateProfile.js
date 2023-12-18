@@ -36,8 +36,10 @@ function handleSubmit(e){
   }
   return (
     <>
+     <section className="login-wrapper">
+      <div className="paddings innerWidth flexCenter login-container">
       <form className='signup-container' onSubmit={handleSubmit}>
-      <h2 className='signup-header'>Update Profile</h2>
+      <h2 className='signup-header' style={{color:'orange'}}>Update Profile</h2>
       {error && <div className='error-msg'>{error}</div>}
       <div>
       <label>Email</label>
@@ -58,6 +60,8 @@ function handleSubmit(e){
     <Link to={'/'} style={{display:'flex' , justifyContent:'center',marginTop:'20px'}}>Cancel</Link>
     </div>
       </form>
+      </div>
+      </section>
     </>
   )
 }

@@ -1,44 +1,28 @@
-import React, { useState } from 'react'
-import {useAuth} from '../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
-import Header from '../Dashboard Components/Header'
-import Tasks from '../Dashboard Components/Tasks'
-import {TaskProvider} from '../contexts/Dashboardcontext'
-import AddForm from '../Dashboard Components/AddForm'
+import Header from "../Dashboard Comp 2/Header/Header";
+import "./App.css";
+import { TaskProvider } from "../contexts/Dashboardcontext";
+import Hero from "../Dashboard Comp 2/Hero/Hero";
+import Value from "../Dashboard Comp 2/Value/Value";
+import GetStarted from "../Dashboard Comp 2/GetStarted/GetStarted";
+import Footer from "../Dashboard Comp 2/Footer/Footer";
 
 const Dashboard = () => {
-    const {logout} = useAuth()
-    const navigate = useNavigate()
-    const[error,setError]=useState('')
-    async function handleLogOut(){
-
-        setError('')
-        try{
-        await logout()
-        navigate('/login')
-        } catch{
-          setError('Failed to Log out')
-        }
-        }
-const [showAddButton,setShowAddButton]=useState(false)
   return (
     <>
-    <div className='dashboard-container'>
-    <header className='dashboard-header'>
-        {error && <div className='error-msg'>{error}</div>}
-        <Link to={'/profile'} className='dashboard-button'>Profile</Link>
-        <button className='dashboard-button' onClick={handleLogOut}>Log out</button>
-    </header>
-    <div className='container'>
-    <TaskProvider>
-    <Header onAdd={()=> setShowAddButton(!showAddButton)} showAdd={showAddButton}/>
-    {showAddButton && <AddForm />}
-    <Tasks />
-    </TaskProvider>
-    </div>
-    </div>
+      <TaskProvider>
+        <div className="App">
+          <div>
+            <div className="white-gradient" />
+            <Header />
+            <Hero />
+          </div>
+          <Value />
+          <GetStarted />
+          <Footer />
+        </div>
+      </TaskProvider>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

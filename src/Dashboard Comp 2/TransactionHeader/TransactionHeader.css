@@ -1,0 +1,18 @@
+.hhh-wrapper{
+    color: white;
+}
+.hhh-container{
+justify-content: space-between;
+padding-top: 1rem;
+padding-bottom: 1rem;
+color: var(--secondary);
+/* background-color: rgb(59, 51, 51); */
+background:#0039a6;
+
+}
+.hhh-menu{
+    gap: 2rem;
+}
+.hhh-menu>a:hover{
+    text-decoration: underline;
+}
